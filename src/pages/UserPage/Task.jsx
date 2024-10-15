@@ -6,6 +6,7 @@ import Tasks from "../../components/Tasks";
 import Completed from "../../components/Completed";
 import Progress from "../../components/Progress";
 
+
 export default function Task() {
   const [activeTab, setActiveTab] = useState("ALL TASKS");
 

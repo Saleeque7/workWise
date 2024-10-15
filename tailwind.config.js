@@ -26,6 +26,7 @@ export default {
         card2:'#197278',
         card3:'#da7422',
         card4:'#38b000',
+        tablebg:'#faedcd'
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

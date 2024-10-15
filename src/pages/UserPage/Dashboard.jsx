@@ -2,7 +2,7 @@ import { Routes ,Route } from "react-router-dom";
 import Task from "./Task";
 import Landing from "../../components/Landing";
 import Addtask from "../../components/Addtask";
-import MyTasks from "../../components/MyTasks";
+import MyTasks from "./MyTasks";
 
 
 export default function Dashboard() {

@@ -18,3 +18,5 @@ export const editmemberStatusTaskApi = `${userApi}/editTaskStatus`
 export const removeMemberApi = `${userApi}/removeMember`
 export const editTaskApi = `${userApi}/editTask`
 export const dashboardApi = `${userApi}/browseData`
+export const mytaskApi = `${userApi}/mytask`
+export const deletetaskApi = `${userApi}/deleteTask`
