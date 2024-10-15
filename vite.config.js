@@ -5,7 +5,6 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
- 
     proxy: {
       '/workwise': {
         target: 'https://workwise-backend-zr68.onrender.com',
