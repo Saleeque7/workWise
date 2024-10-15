@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/workwise': {
-        target: 'http://localhost:5000',
+        target: 'https://workwise-backend-zr68.onrender.com',
         changeOrigin: true,
       },
     },
