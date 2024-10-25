@@ -3,8 +3,7 @@ import { GiProgression } from "react-icons/gi";
 import { MdCheckCircle } from "react-icons/md";
 import { useState } from "react";
 import Tasks from "../../components/Tasks";
-import Completed from "../../components/Completed";
-import Progress from "../../components/Progress";
+
 
 
 export default function Task() {
@@ -92,7 +91,7 @@ export default function Task() {
               id="ALL TASKS"
               role="tabpanel"
             >
-              <Tasks />
+              <Tasks  activeTab={activeTab} />
             </div>
           </div>
         )}
@@ -104,7 +103,7 @@ export default function Task() {
               id="IN-PROGRESS"
               role="tabpanel"
             >
-              <Progress />
+              <Tasks activeTab={activeTab} />
             </div>
           </div>
         )}
@@ -116,7 +115,7 @@ export default function Task() {
               id="COMPLETED"
               role="tabpanel"
             >
-              <Completed />
+              <Tasks activeTab={activeTab} />
             </div>
           </div>
         )}

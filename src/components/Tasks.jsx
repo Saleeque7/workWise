@@ -28,7 +28,7 @@ import { Transition } from "./Transition";
 import ExpandModal from "./expandModal";
 import EditTaskModal from "./editTaskModal";
 
-export default function Tasks() {
+export default function Tasks({activeTab}) {
   const user = useSelector((state) => state.persisted.user.user);
 
   const navigate = useNavigate();
@@ -51,9 +51,8 @@ export default function Tasks() {
 
   const fetchTasks = useCallback(async (page = 1, limit = 6) => {
     try {
-      const action = "AllTask";
       const response = await userAxiosInstance.get(browseTaskApi, {
-        params: { page, limit, action },
+        params: { page, limit, activeTab },
       });
       console.log(response.data, "response");
 
@@ -98,10 +97,7 @@ export default function Tasks() {
 
   const handleJoin = async () => {
     try {
-      const res = await userAxiosInstance.put(joinTaskApi, {
-        id: taskIdToJoin,
-      });
-
+      const res = await userAxiosInstance.put(`${joinTaskApi}/${taskIdToJoin}`)
       console.log("Task joined successfully:", res.data);
       if (res.data && res.data.success) {
         toast.success(res.data?.message, {
@@ -124,9 +120,7 @@ export default function Tasks() {
   };
   const handleLeave = async () => {
     try {
-      const res = await userAxiosInstance.put(leaveTaskApi, {
-        id: taskIdToJoin,
-      });
+      const res = await userAxiosInstance.put(`${leaveTaskApi}/${taskIdToJoin}`)
 
       console.log("Task leave successfully:", res.data);
       if (res.data && res.data.success) {
@@ -179,8 +173,7 @@ export default function Tasks() {
 
   const handleSaveStatusChange = async (updatedStatuses) => {
     try {
-      const response = await userAxiosInstance.put(editmemberStatusTaskApi, {
-        taskId: expandTask._id,
+      const response = await userAxiosInstance.put(`${editmemberStatusTaskApi}/${expandTask._id}`, {
         statuses: updatedStatuses,
       });
       console.log("Task statuses updated", response.data);
@@ -218,10 +211,7 @@ export default function Tasks() {
 
   const handleRemoveMember = async () => {
     try {
-      const response = await userAxiosInstance.put(removeMemberApi, {
-        taskId: taskIdToJoin,
-        memberId: memeberIdToremove,
-      });
+      const response = await userAxiosInstance.put(`${removeMemberApi}/${taskIdToJoin}/${memeberIdToremove}`)
       if (response.data && response.data.success) {
         toast.success(response.data?.message, {
           transition: Slide,
@@ -252,8 +242,7 @@ export default function Tasks() {
 
   const EditTask = async (updatedTaskData) => {
     try {
-      const response = await userAxiosInstance.put(editTaskApi, {
-        taskId: taskIdToJoin,
+      const response = await userAxiosInstance.put(`${editTaskApi}/${taskIdToJoin}`, {
         task: updatedTaskData,
       });
       if (response.data && response.data.success) {
