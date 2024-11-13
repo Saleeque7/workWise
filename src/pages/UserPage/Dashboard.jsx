@@ -9,7 +9,7 @@ export default function Dashboard() {
   return (
     <div className="min-h-screen flex-1 bg-customPeach p-6 m-4 rounded-xl">
       <Routes>
-        <Route path="/" element={<Landing/>}/>
+        <Route path="/" element={<Landing/>}/>  
         <Route path="/tasks" element={<Task/>}/>
         <Route path="/add_task" element={<Addtask />} />
         <Route path="/my_tasks" element={<MyTasks />} />

@@ -12,4 +12,4 @@ export default function AuthRoutes() {
       <Route path="/auth/verify" element={<RegisterVerify />} />
     </Routes>
   );
-}
+} 
