@@ -6,11 +6,9 @@ import { userAxiosInstance } from "../utils/api/PrivateAxios";
 import { addTaskApi, notificationkApi } from "../utils/api/api";
 import { toast, Slide } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useSocket } from "../utils/Context/SocketContext";
 import { useSelector } from "react-redux";
 
 export default function AddTask() {
-  const socket = useSocket();
   const user = useSelector((state) => state.persisted.user.user);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -85,7 +83,7 @@ export default function AddTask() {
               autoClose: 2000,
             });
           }
-          // socket.emit('add_task',res.data.notif)
+   
 
           setTitle("");
           setSelectedItem("");
